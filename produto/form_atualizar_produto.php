@@ -21,7 +21,7 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
 <link rel="stylesheet" type="text/css" href="../css/formatacao.css">
 </head>
 <body>
-<form name="frm_produto" action="atualizar_produto.php" method="post">
+<form name="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data"> 
 <div id="principal">
   <h1> Atualizar Produto </h1>
     
@@ -44,7 +44,10 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
     </select>
     
     <label> Foto </label>
-    <input name="txt_foto" type="foto" class="input_01" value="<?php echo $dados['pro_foto']; ?>">
+    <input name="txt_foto" type="file" class="input_01" value="">
+    <input name="txt_foto" type="hidden" class="input_01" value="<?php echo $dados['pro_foto']; ?>">
+  <img src="<?php echo $dados['pro_foto']; ?>" width="50px" height="50px">
+
 
     <label> Fornecedor </label>
     <select name="txt_fornecedor" class="select_01">
