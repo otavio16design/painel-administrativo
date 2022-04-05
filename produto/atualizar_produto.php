@@ -112,6 +112,6 @@ $query = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 
 } 
 
-	
+
 ?>
 
