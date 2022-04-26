@@ -10,10 +10,9 @@ $preco 		= $_REQUEST['txt_preco'];
 $status 	= $_REQUEST['txt_status'];
 $fornecedor	= $_REQUEST['txt_fornecedor']; 
 $arquivo	= $_FILES['txt_foto']['name'];
-$fotoantiga = $_REQUEST['txt_foto'];
+$fotoantiga = $_REQUEST['txt_antiga'];
 
-// if($arquivo <>"")
-if($arquivo !== null) {
+if($arquivo <>"") {
 
 
 
@@ -93,7 +92,6 @@ $query = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 		pro_qtde = '$qtde', 
 		pro_preco = '$preco',
 		pro_status = '$status',
-		pro_foto = '$destino',
 		for_codigo = '$fornecedor'
 	where 
 		pro_codigo = '$id'";
@@ -112,6 +110,6 @@ $query = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 
 } 
 
-
+	
 ?>
 

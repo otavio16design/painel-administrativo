@@ -15,10 +15,62 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 <meta charset="utf-8">
 <title> Formulário de Cadastro </title>
 <link rel="stylesheet" type="text/css" href="../css/formatacao.css">
-</head>
-<body>
+<script language="JavaScript">
+    // function mascara(t, mask) {
 
-<form name="frm_produto" action="cadastro_produto.php" method="post" enctype="multipart/form-data"> 
+    //   var i = t.value.length;
+    //   var saida = mask.substring(1, 0);
+    //   var texto = mask.substring(i)
+
+    //   if (texto.substring(0, 1) != saida) {
+    //     t.value += texto.substring(0, 1);
+    //   }
+
+    // }
+
+    function foco() {
+      document.frm_produto.txt_descricao.focus()
+      document.frm_produto.txt_foto.focus()
+      document.frm_produto.txt_preco.focus()
+      document.frm_produto.txt_fornecedor.focus()
+    }
+
+    function validar_dados() {
+      if (document.frm_produto.txt_descricao.value == "") {
+        alert("Você deve preencher o campo Descrição!");
+        document.frm_produto.txt_descricao.focus();
+
+        return false;
+      }
+
+      if (document.frm_produto.txt_foto.value == "") {
+        alert("Insira uma Foto!");
+        document.frm_produto.txt_foto.focus();
+
+        return false;
+      }
+
+      if (document.frm_produto.txt_preco.value == "") {
+        alert("Você deve preencher o campo Preço!");
+        document.frm_produto.txt_preco.focus();
+
+        return false;
+      }
+
+      if (document.frm_produto.txt_fornecedor.value == "") {
+        alert("Você deve preencher o campo Fornecedor!");
+        document.frm_produto.txt_fornecedor.focus();
+
+        return false;
+      }
+    
+    }
+  </script>
+
+</head>
+
+<body onload="foco()">
+<form name="frm_produto" action="cadastro_produto.php" method="post" enctype="multipart/form-data">
 <div id="principal">
   <h1> Cadastro Produto </h1>
     <label> Descrição </label>
@@ -44,14 +96,14 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 
     <label> Fornecedor </label>
     <select name="txt_fornecedor" class="select_01">
-      <?php while ($dados = mysqli_fetch_array($sql)) { ?>
+          <?php while ($dados = mysqli_fetch_array($sql)) { ?>
         <option value="<?php echo $dados['for_codigo']; ?>">
-        <?php echo utf8_encode ($dados['for_nome']); ?>
+        <?php echo $dados['for_nome']; ?>
       </option>
       <?php } ?>
     </select>
 
-    <input name="btn_enviar" type="submit" class="btn">
+    <input name="btn_enviar" type="submit" value="Enviar" class="btn" onclick="return validar_dados()">
 
 </div>
 </form>

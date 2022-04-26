@@ -19,4 +19,6 @@ $sql = "update tb_cliente set
 mysqli_query($con, $sql) or die ("Erro na sql!") ;
 
 header("Location: consulta_cliente.php");
+// echo $sql;
+
 ?>

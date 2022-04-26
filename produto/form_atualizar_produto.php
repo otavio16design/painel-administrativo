@@ -19,9 +19,62 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
 <meta charset="utf-8">
 <title> Formulário Atualizar </title>
 <link rel="stylesheet" type="text/css" href="../css/formatacao.css">
+<script language="JavaScript">
+    // function mascara(t, mask) {
+
+    //   var i = t.value.length;
+    //   var saida = mask.substring(1, 0);
+    //   var texto = mask.substring(i)
+
+    //   if (texto.substring(0, 1) != saida) {
+    //     t.value += texto.substring(0, 1);
+    //   }
+
+    // }
+
+    function foco() {
+      document.frm_produto.txt_descricao.focus()
+      document.frm_produto.txt_foto.focus()
+      document.frm_produto.txt_preco.focus()
+      document.frm_produto.txt_fornecedor.focus()
+    }
+
+    function validar_dados() {
+      if (document.frm_produto.txt_descricao.value == "") {
+        alert("Você deve preencher o campo Descrição!");
+        document.frm_produto.txt_descricao.focus();
+
+        return false;
+      }
+
+      if (document.frm_produto.txt_foto.value == "") {
+        alert("Insira uma Foto!");
+        document.frm_produto.txt_foto.focus();
+
+        return false;
+      }
+
+      if (document.frm_produto.txt_preco.value == "") {
+        alert("Você deve preencher o campo Preço!");
+        document.frm_produto.txt_preco.focus();
+
+        return false;
+      }
+
+      if (document.frm_produto.txt_fornecedor.value == "") {
+        alert("Você deve preencher o campo Fornecedor!");
+        document.frm_produto.txt_fornecedor.focus();
+
+        return false;
+      }
+    
+    }
+  </script>
+
 </head>
-<body>
-<form name="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data"> 
+
+<body onload="foco()">
+<form name="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data">
 <div id="principal">
   <h1> Atualizar Produto </h1>
     
@@ -44,22 +97,25 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
     </select>
     
     <label> Foto </label>
-    <input name="txt_foto" type="file" class="input_01" value="">
-    <input name="txt_foto" type="hidden" class="input_01" value="<?php echo $dados['pro_foto']; ?>">
+    <input name="txt_foto" type="file" class="input_01">
+    <input name="txt_antiga" type="hidden" class="input_01" value="<?php echo $dados['pro_foto']; ?>">
   <img src="<?php echo $dados['pro_foto']; ?>" width="50px" height="50px">
-
 
     <label> Fornecedor </label>
     <select name="txt_fornecedor" class="select_01">
-      <?php while ($dados = mysqli_fetch_array($sql2)) { ?>
-        <option value="<?php echo $dados['for_codigo']; ?>">
-        <?php echo utf8_encode ($dados['for_nome']); ?>
+
+      <?php while ($dados2 = mysqli_fetch_array($sql2)) { ?>
+
+      <option value="<?php echo $dados2['for_codigo']; ?>" <?php if($dados['for_codigo'] == $dados2['for_codigo']) {echo "selected" ;} ?>>
+        <?php echo $dados2['for_nome']; ?>
       </option>
       <?php } ?>
     </select>
 
+    
+    
 
-    <input name="btn_enviar" type="submit" class="btn">
+    <input name="btn_enviar" type="submit" value="Enviar" class="btn" onclick="return validar_dados()">
 </div>
 </form>
 </body>

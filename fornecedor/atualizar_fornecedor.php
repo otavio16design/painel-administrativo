@@ -6,6 +6,7 @@ $id 	= $_REQUEST['txt_codigo'];
 $nome 	= $_REQUEST['txt_nome'];
 $fone 	= $_REQUEST['txt_fone'];
 $cel	= $_REQUEST['txt_cel'];
+$cel	= $_REQUEST['txt_cel'];
 $email 	= $_REQUEST['txt_email'];
 
 $sql = "update tb_fornecedor set 

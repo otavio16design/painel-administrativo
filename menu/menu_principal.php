@@ -127,6 +127,16 @@ img {
       <div class="botao"> <img src="../img/icon_consulta.png"> Consulta </div>
     </a>
 
+	<div class="titulo"> :: News </div>
+    
+    <a href="../news/form_news.php" target="conteudo"> 
+      <div class="botao"> <img src="../img/icon_cadastro.png"> Formulário de Cadastro  </div> 
+    </a>
+    
+    <a href="../news/consulta_news.php" target="conteudo"> 
+      <div class="botao"> <img src="../img/icon_consulta.png"> Consulta </div>
+    </a>
+
     <div class="titulo"> :: Sair </div>
     <a href="../logout.php"> 
       <div class="botao"> <img src="../img/icon_cadastro.png"> Logout </div> 
