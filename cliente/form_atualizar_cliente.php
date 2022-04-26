@@ -31,7 +31,6 @@ $dados = mysqli_fetch_array($sql);
 
     function foco() {
       document.frm_cliente.txt_nome.focus()
-      document.frm_cliente.txt_data_nascimento.focus()
     }
 
     function validar_dados() {

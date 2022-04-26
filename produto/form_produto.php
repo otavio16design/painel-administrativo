@@ -30,22 +30,12 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 
     function foco() {
       document.frm_produto.txt_descricao.focus()
-      document.frm_produto.txt_foto.focus()
-      document.frm_produto.txt_preco.focus()
-      document.frm_produto.txt_fornecedor.focus()
     }
 
     function validar_dados() {
       if (document.frm_produto.txt_descricao.value == "") {
         alert("Você deve preencher o campo Descrição!");
         document.frm_produto.txt_descricao.focus();
-
-        return false;
-      }
-
-      if (document.frm_produto.txt_foto.value == "") {
-        alert("Insira uma Foto!");
-        document.frm_produto.txt_foto.focus();
 
         return false;
       }
@@ -70,7 +60,7 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
 </head>
 
 <body onload="foco()">
-<form name="frm_produto" action="cadastro_produto.php" method="post" enctype="multipart/form-data">
+<form name="frm_produto" id="frm_produto" action="cadastro_produto.php" method="post" enctype="multipart/form-data">
 <div id="principal">
   <h1> Cadastro Produto </h1>
     <label> Descrição </label>

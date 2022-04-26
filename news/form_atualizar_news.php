@@ -31,8 +31,6 @@ $dados = mysqli_fetch_array($sql);
 
     function foco() {
       document.frm_news.txt_titulo.focus()
-      document.frm_news.txt_status.focus()
-      document.frm_news.txt_autor.focus()
     }
 
     function validar_dados() {

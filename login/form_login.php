@@ -25,27 +25,25 @@ require_once('../conexao/banco.php');
 
     function foco() {
       document.frm_login.txt_nome.focus()
-      document.frm_login.txt_login.focus()
-      document.frm_login.txt_senha.focus()
     }
 
     function validar_dados() {
 
-      if (document.frm_login.txt_nome == "") {
+      if (document.frm_login.txt_nome.value == "") {
         alert("Insira seu Nome!");
         document.frm_login.txt_nome.focus();
 
         return false;
       }
 
-      if (document.frm_login.txt_login == "") {
+      if (document.frm_login.txt_login.value == "") {
         alert("Você deve preencher o Login!");
         document.frm_login.txt_login.focus();
 
         return false;
       }
 
-      if (document.frm_login.txt_senha == "") {
+      if (document.frm_login.txt_senha.value == "") {
         alert("Você deve preencher a Senha!");
         document.frm_login.txt_senha.focus();
 
@@ -59,7 +57,7 @@ require_once('../conexao/banco.php');
 
 <body onload="foco()">
 
-<form name="frm_login" action="cadastro_login.php" method="post">
+<form name="frm_login" id="frm_login" action="cadastro_login.php" method="post">
 <div id="principal">
   <h1> Cadastro Login </h1>
     <label> Nome </label>
